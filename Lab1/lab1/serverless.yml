@@ -1,0 +1,18 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: matthewkaya
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+app: lab1
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: lab1
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+
+functions:
+  api:
+    handler: index.handler
+    events:
+      - httpApi:
+          path: /square/{base}
+          method: get    
